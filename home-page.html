@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero Section</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500&display=swap');
+        
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column; /* Ensure stacking of sections */
+            align-items: center;
+            background-color: #f9f9f9; /* Same background color as Benefits section */
+            padding-top: calc(0.75 * 116px); /* Space from top of the page to the top of the hero section */
+            padding-bottom: calc(0.75 * 116px); /* Space below card container */
+        }
+    
+        .hero {
+            width: 941px;
+            height: 265px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            margin-bottom: calc(0.75 * 116px); /* Space between hero section and card container */
+        }
+    
+        .hero-header {
+            display: flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.95);
+            width: 643px;
+            height: 78px;
+            border-radius: 8px;
+            padding: 10px;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, 0);
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .icon-container {
+            width: 48px;
+            height: 48px;
+            background-color: rgba(255, 140, 0, 0.50); /* Orange/50 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            margin-right: 1.5%; /* Flexibly adjust the gap */
+        }
+        .icon-container i {
+            font-size: 18px; /* Font size for icon */
+            color: rgba(0, 0, 0, 0.85); /* Black, but 15% lighter */
+        }
+        .hero-header h1 {
+            font-size: 2.4em; /* Set font size to 2.4em to avoid line breaking */
+            color: #000;
+            margin: 0;
+        }
+        .hero-header h1 .highlight {
+            color: rgba(255, 140, 0, 0.95); /* Orange/95 */
+        }
+        .hero h2 {
+            font-size: 28px;
+            font-weight: 500; /* Medium 28 */
+            color: rgba(0, 0, 0, 0.85); /* Black, but 15% lighter */
+            margin: 10px 0; /* Adjusted vertical spacing */
+            width: 941px;
+            height: 42px;
+        }
+        .hero p {
+            font-size: 1.2em;
+            color: rgba(0, 0, 0, 0.85); /* Match color with h2 */
+            margin: 20px 0; /* Adjusted vertical spacing */
+            position: absolute;
+            top: calc(50% + 21px); /* Adjust top position to avoid overlap */
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+        }
+        .hero .buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+        }
+        .hero button {
+            font-size: 1em;
+            width: 154px;
+            height: 49px;
+            padding: 0;
+            margin: 0 10px;
+            border: none;
+            cursor: pointer;
+            font-family: 'Be Vietnam Pro', sans-serif; /* Same font as the webpage */
+            border-radius: 6px; /* 6px border radius */
+            white-space: nowrap; /* Ensure no line break */
+            display: flex;
+            justify-content: center;
+            align-items: center; /* Center text absolutely */
+        }
+        .hero .explore-courses {
+            background-color: #ff8c00;
+            color: #fff;
+        }
+        .hero .view-pricing {
+            width: 127px; /* Set width for View Pricing */
+            height: 49px; /* Set height for View Pricing */
+            background-color: #fff;
+            color: #333;
+        }
+        
+        .card-container {
+            width: 1279px;
+            height: 116px;
+            background-color: #fff;
+            display: flex;
+            flex-wrap: nowrap; /* Ensure no wrapping */
+            justify-content: space-evenly; /* Distribute space evenly */
+            align-items: center;
+            padding: 10px;
+            margin: 0; /* Adjusted margin */
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            position: relative; /* To manage overlapping */
+            overflow: hidden; /* Prevent overflow */
+        }
+    
+        .card {
+            height: 68px; /* Set height */
+            width: auto; /* Allow width to adjust automatically */
+            max-width: 175.86px; /* Ensure consistent max width */
+        }
+        
+        .material-icons {
+            font-size: 48px; /* Adjust size as needed */
+            color: #333; /* Adjust color as needed */
+        }
+    
+        .container-section {
+            width: 1280px;
+            height: 644px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: calc(0.75 * 116px); /* Space between card container and this section */
+            overflow: hidden; /* Hide any overflow */
+            border-radius: 10px; /* Add 10px border radius */
+            position: relative; /* For positioning the play button */
+        }
+    
+        .container-image {
+            width: 1596px;
+            height: 790px;
+            object-fit: cover; /* Ensure the image covers the container without distortion */
+        }
+    
+        .play-button {
+            width: 108px; /* Diameter of the circle */
+            height: 108px; /* Diameter of the circle */
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.5); /* Transparent black */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute; /* Positioning inside the container */
+            cursor: pointer; /* Indicate clickable */
+        }
+    
+        .play-button i {
+            font-size: 54px; /* Size of the play icon */
+            color: white; /* Color of the icon */
+        }
+    
+        .benefits-section {
+            width: 1279px; /* Adjusted width */
+            height: 935px; /* Adjusted height */
+            background-color: #f9f9f9; /* Light background for the section */
+            padding: 10px; /* Padding to include space around content */
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Space between header and grid */
+        }
+        
+        .benefits-header {
+            width: 100%;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between; /* Align items to left and right */
+            align-items: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        .benefits-title {
+            text-align: left;
+        }
+        
+        .benefits-header h2 {
+            font-size: 36px;
+            color: #333333;
+            margin: 0; /* Remove default margin */
+        }
+        
+        .benefits-header p {
+            font-size: 16px;
+            color: #666666;
+            margin-top: 10px;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1280px;
+            margin: 120px auto 0; /* Adjust margin to prevent overlap with header */
+            flex-grow: 1;
+        }
+        
+        .benefit-box {
+            background-color: #ffffff; /* White background for the benefit boxes */
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        
+        .benefit-box i {
+            font-size: 48px;
+            color: #ff8c00;
+        }
+        
+        .benefit-box h3 {
+            font-size: 24px;
+            color: #333333;
+            margin: 10px 0;
+        }
+        
+        .benefit-box p {
+            font-size: 16px;
+            color: #666666;
+        }
+        
+        .view-all {
+            width: 127px; /* Same width as "View Pricing" button */
+            height: 49px; /* Same height as "View Pricing" button */
+            background-color: #fff;
+            color: #333;
+            border: 2px solid #333;
+            font-size: 1em;
+            padding: 10px 20px;
+            border-radius: 6px; /* Matching the button style */
+            cursor: pointer;
+        }        
+    </style>    
+    <!-- Add Google Icons link -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+    <div class="hero">
+        <div class="hero-header">
+            <div class="icon-container">
+                <i class="material-icons" style="font-size: 18px; height: 21px;">bolt</i> <!-- Google Icons lightning bolt -->
+            </div>
+            <h1><span class="highlight">Unlock</span> Your Creative Potential</h1>
+        </div>
+        <h2>with Online Design and Development Courses.</h2>
+        <p>Learn from Industry Experts and Enhance Your Skills.</p>
+        <div class="buttons">
+            <button class="explore-courses">Explore Courses</button>
+            <button class="view-pricing">View Pricing</button>
+        </div>
+    </div>
+    <div class="card-container">
+        <img src="zapier.png" alt="Zapier" class="card">
+        <img src="Spotify.png" alt="Spotify" class="card">
+        <img src="Zoom.png" alt="Zoom" class="card">
+        <img src="Amazon.png" alt="Amazon" class="card">
+        <img src="Adobe.png" alt="Adobe" class="card">
+        <img src="Notion.png" alt="Notion" class="card">
+        <img src="Netflix.png" alt="Netflix" class="card">
+    </div>
+    <div class="container-section">
+        <img src="Container.png" alt="Container" class="container-image">
+        <div class="play-button">
+            <i class="material-icons">play_arrow</i>
+        </div>
+    </div>
+    <div class="benefits-section">
+        <div class="benefits-header">
+            <div class="benefits-title">
+                <h2>Benefits</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <button class="view-all">View All</button>
+        </div>
+        <div class="benefits-grid">
+            <div class="benefit-box">
+                <i class="material-icons">schedule</i>
+                <h3>Flexible Learning Schedule</h3>
+                <p>Fit your coursework around your existing commitments and obligations.</p>
+            </div>
+            <div class="benefit-box">
+                <i class="material-icons">school</i>
+                <h3>Expert Instruction</h3>
+                <p>Learn from industry experts who have hands-on experience in design and development.</p>
+            </div>
+            <div class="benefit-box">
+                <i class="material-icons">library_books</i>
+                <h3>Diverse Course Offerings</h3>
+                <p>Explore a wide range of design and development courses covering various topics.</p>
+            </div><br>
+            <div class="benefit-box">
+                <i class="material-icons">update</i>
+                <h3>Updated Curriculum</h3>
+                <p>Access courses with up-to-date content reflecting the latest trends and industry practices.</p>
+            </div>
+            <div class="benefit-box">
+                <i class="material-icons">build</i>
+                <h3>Practical Projects and Assignments</h3>
+                <p>Develop a portfolio showcasing your skills and abilities to potential employers.</p>
+            </div>
+            <div class="benefit-box">
+                <i class="material-icons">group</i>
+                <h3>Interactive Learning Environment</h3>
+                <p>Collaborate with fellow learners, exchanging ideas and feedback to enhance your understanding.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
